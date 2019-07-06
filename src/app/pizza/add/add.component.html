@@ -1,0 +1,46 @@
+<div class="container">
+        <form [formGroup]="angForm" novalidate>
+    
+            <div class="form-group">
+                <label for="pizzaId" class="col-md-4">Pizza Id</label>
+                <input type="text" class="form-control" formControlName="pizzaId" #pizzaId>
+            </div>
+    <!-- we want to bind error with above input element so #empId -->
+            <div class="alert alert-danger" *ngIf="angForm.controls['pizzaId'].invalid && (angForm.controls['pizzaId'].dirty || angForm.controls['pizzaId'].touched)">
+                <!-- Custom Error Message -->
+                <div *ngIf="angForm.controls['pizzaId'].errors.required">
+                    Pizza Id must be entered
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="pizzaName" class="col-md-4">Pizza Name</label>
+                <input type="text" class="form-control" formControlName="pizzaName" #pizzaName>
+            </div>
+    <!-- we want to bind error with above input element so #empName -->
+    <div class="alert alert-danger" *ngIf="angForm.controls['pizzaName'].invalid && (angForm.controls['pizzaName'].dirty || angForm.controls['pizzaName'].touched)">
+            <!-- Custom Error Message -->
+            <div *ngIf="angForm.controls['pizzaName'].errors.required">
+                Pizza Name must be entered
+            </div>
+        </div>
+    
+            <div class="form-group">
+                <label for="price" class="col-md-4">Price</label>
+                <input type="text" class="form-control" formControlName="price" #price>
+            </div>
+    <!-- we want to bind error with above input element so #designation -->
+    <div class="alert alert-danger" *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)">
+            <!-- Custom Error Message -->
+            <div *ngIf="angForm.controls['price'].errors.required">
+                Pizza Price must be entered
+            </div>
+        </div>
+    
+    <div class="form-group">
+        <button (click)="addPizza(pizzaId.value,pizzaName.value,price.value)" [disabled]="angForm.invalid || angForm.pristine" class="btn btn-primary">Add Pizza</button>
+    </div>
+        </form>
+    </div>
+    
+    

@@ -1,0 +1,24 @@
+<div class="container">
+        <div style="align-content: center"></div>
+        <p><b>All PIZZAS</b></p>
+        <p><a routerLink="/pizza/create">Add Pizzas</a></p> 
+
+            <div class="row" *ngFor="let pizza of pizzas" (click)="onSelection(pizza)">
+            
+            <div class="col-md-2">{{pizza.pizzaId}}</div>
+            <div class="col-md-4">{{pizza.pizzaName}}</div>
+            <div class="col-md-4">{{pizza.price}}</div>
+        
+
+            <a routerLink="/pizza/delete/{{pizza.pizzaId}}">Delete</a>
+            
+            </div>
+        
+            <!-- <div class="col-md-2">Edit</div>
+            </div>
+        
+        </div>
+        <div *ngIf="selectedEmp" class="selectedEmp">
+                <app-emp-edit [employee]="selectedEmp"></app-emp-edit>
+        </div>
+-->
